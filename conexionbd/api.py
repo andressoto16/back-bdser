@@ -56,7 +56,7 @@ class CerDetMedidaPermiso(viewsets.ModelViewSet):
     
 #22
 class CerDetValoresIndColPermiso(viewsets.ModelViewSet):
-    queryset = CerDetValoresIndCol.objects.all()[:500]
+    queryset = CerDetValoresIndCol.objects.all()[:50]
     serializer_class = apiCerDetValoresIndCol
     filter_backends = [DjangoFilterBackend]
     http_method_names = ['get']
@@ -182,8 +182,9 @@ class IfCuerpo7Permiso(viewsets.ModelViewSet):
     
 #89
 class IfDesplazamientoPermiso(viewsets.ModelViewSet):
-    queryset = IfDesplazamiento.objects.all()[:500]
+    queryset = IfDesplazamiento.objects.all()
     serializer_class = apiIfDesplazamiento
+    filterset_fields = ['pen_idsolpadre']
     filter_backends = [DjangoFilterBackend]
     http_method_names = ['get']
     
@@ -203,14 +204,30 @@ class IfEntornosPermiso(viewsets.ModelViewSet):
     
 #99
 class IfEntrevistaPermiso(viewsets.ModelViewSet):
-    queryset = IfEntrevista.objects.all()[:500]
+    queryset = IfEntrevista.objects.all()
     serializer_class = apiIfEntrevista
     filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['en_ortr_001','pen_idsolicitud']
     http_method_names = ['get']
     
 #100
 class IfEntrevista2Permiso(viewsets.ModelViewSet):
-    queryset = IfEntrevista2.objects.all()[:500]
+    queryset = IfEntrevista2.objects.all()
     serializer_class = apiIfEntrevista2
+    filterset_fields = ['pen_idsolicitud']
     filter_backends = [DjangoFilterBackend]
+    http_method_names = ['get']
+    
+class IfGvpPermiso(viewsets.ModelViewSet):
+    queryset = IfGvp.objects.all()
+    serializer_class = apiIfgvp
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['pen_idsolpadre']
+    http_method_names = ['get']
+    
+class IfRepartoGralPte1Permiso(viewsets.ModelViewSet):
+    queryset = IfRepartoGralPte1.objects.all()
+    serializer_class = apiIfRepartoGralPte1
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['re_ortr_009']
     http_method_names = ['get']

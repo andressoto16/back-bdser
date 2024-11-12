@@ -36,6 +36,8 @@ router.register('documentalgrilla', IfDocumentalGrillaPermiso, basename='documen
 router.register('entorno', IfEntornosPermiso, basename='entorno')
 router.register('entrevista', IfEntrevistaPermiso, basename='entrevista')
 router.register('entrevista2', IfEntrevista2Permiso, basename='entrevista2')
+router.register('gvp', IfGvpPermiso, basename='gvp')
+router.register('reparto1', IfRepartoGralPte1Permiso, basename='reparto1')
 
 
 

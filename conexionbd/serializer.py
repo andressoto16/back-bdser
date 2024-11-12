@@ -181,3 +181,13 @@ class apiIfEntrevista2(serializers.ModelSerializer):
     class Meta:
         model = IfEntrevista2
         fields = '__all__'
+        
+class apiIfgvp(serializers.ModelSerializer):
+    class Meta:
+        model = IfGvp
+        fields = '__all__'
+        
+class apiIfRepartoGralPte1(serializers.ModelSerializer):
+    class Meta:
+        model = IfRepartoGralPte1
+        fields = '__all__'
