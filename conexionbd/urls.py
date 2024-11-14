@@ -38,6 +38,8 @@ router.register('entrevista', IfEntrevistaPermiso, basename='entrevista')
 router.register('entrevista2', IfEntrevista2Permiso, basename='entrevista2')
 router.register('gvp', IfGvpPermiso, basename='gvp')
 router.register('reparto1', IfRepartoGralPte1Permiso, basename='reparto1')
+router.register('reparto2', IfRepartoGralPte2Permiso, basename='reparto2')
+router.register('reparto', repartoPermiso, basename='reparto')
 
 
 

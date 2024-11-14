@@ -9,7 +9,7 @@
 from django.db import models
 
 #1
-class AReeval(models.Model):                        ## tabla con informacion importante
+class AReeval(models.Model):                        ## tabla con informacion importante hasta 2020
     ida_reeval = models.BigAutoField(primary_key=True)
     cc = models.CharField(db_column='CC',max_length=1000, blank=True, null=True)  # Field name made lowercase.
     pri_nombre = models.CharField(db_column='PRI_NOMBRE',max_length=1000, blank=True, null=True)  # Field name made lowercase.
@@ -594,7 +594,7 @@ class CufAcorAnaCoordina(models.Model):         ### tabal intermedia entre anali
 
 #36
 class CufActiActividades(models.Model):         ### tabla sin información
-    cuf_acti_secue = models.DecimalField(primary_key=True, max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_acti_secue = models.DecimalField(primary_key=True, max_digits=30, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_acti_nombre = models.CharField(max_length=1000, blank=True, null=True)
     cuf_acti_nropaso = models.IntegerField(blank=True, null=True)
     cuf_acti_expresion = models.CharField(max_length=1000, blank=True, null=True)
@@ -622,7 +622,7 @@ class CufAcuAcuses(models.Model):               ### tabla con poca información 
 #38
 class CufBdData(models.Model):                  ### tabla con información de log de la base de datos(P0_F10_CF)
     cuf_bd_secue = models.AutoField(primary_key=True)
-    cuf_sol_secue = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_sol_secue = models.DecimalField(max_digits=30, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_bd_codigo = models.CharField(max_length=1000, )
     cuf_bd_respuesta = models.CharField(max_length=1000,blank=True, null=True)
     cuf_bd_data = models.CharField(max_length=1000)
@@ -703,7 +703,7 @@ class CufCaruCargousu(models.Model):            ### tabla con los cargos de los 
 
 #42
 class CufColsSalida(models.Model):              ### tabla con información por verificar
-    cuf_cols_secue = models.DecimalField(db_column='CUF_COLS_SECUE', primary_key=True, max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_cols_secue = models.DecimalField(db_column='CUF_COLS_SECUE', primary_key=True, max_digits=30, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_for_secue = models.DecimalField(db_column='CUF_FOR_SECUE', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_detc_secue = models.DecimalField(db_column='CUF_DETC_SECUE', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_cols_pestana = models.CharField(max_length=1000,db_column='CUF_COLS_PESTANA', blank=True, null=True)  # Field name made lowercase.
@@ -748,7 +748,7 @@ class CufDcarDetalle(models.Model):             ### tabla con valoidaciones para
 
 #45
 class CufDetcColumnas(models.Model):            ### tabla con condicionamientos de las celdas
-    cuf_detc_secue = models.DecimalField(primary_key=True, max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_detc_secue = models.DecimalField(primary_key=True, max_digits=30, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_for_secue = models.DecimalField(max_digits=12, decimal_places=5, blank=True, null=True)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_par_tipval = models.DecimalField(max_digits=12, decimal_places=5, blank=True, null=True)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_par_tipdat = models.DecimalField(max_digits=12, decimal_places=5, blank=True, null=True)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
@@ -904,7 +904,7 @@ class CufGenCatalogo(models.Model):             ### tabla sin información
 
 #55
 class CufGranGrurangos(models.Model):           ### atributos de las celdas
-    cuf_gran_secue = models.DecimalField(primary_key=True, max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_gran_secue = models.DecimalField(primary_key=True, max_digits=30, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_gran_nombre = models.CharField(max_length=1000,blank=True, null=True)
     cuf_gran_descr = models.CharField(max_length=1000,blank=True, null=True)
     cuf_gran_estado = models.CharField(max_length=1000,blank=True, null=True)
@@ -983,7 +983,7 @@ class CufMailConfig(models.Model):              ### tabla con los patrones para 
 
 #61
 class CufOpeOperacion(models.Model):            ### tabla con poca información
-    cuf_ope_secue = models.DecimalField(primary_key=True, max_digits=10, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_ope_secue = models.DecimalField(primary_key=True, max_digits=30, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_ope_codigo = models.CharField(max_length=1000,blank=True, null=True)
     cuf_ope_nombre = models.CharField(max_length=1000,blank=True, null=True)
     cuf_ope_descr = models.CharField(max_length=1000,blank=True, null=True)
@@ -1067,7 +1067,7 @@ class CufRenfReenvioform(models.Model):         ### tabla con poca informacion r
 
 #68
 class CufSegEventos(models.Model):              ### tabla con poca informacion registrada
-    cuf_seg_secue = models.DecimalField(primary_key=True, max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    cuf_seg_secue = models.DecimalField(primary_key=True, max_digits=30, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     cuf_seg_fchreg = models.DateTimeField(blank=True, null=True)
     cuf_seg_dia = models.IntegerField(blank=True, null=True)
     cuf_seg_mes = models.IntegerField(blank=True, null=True)
@@ -1169,9 +1169,9 @@ class IfActa(models.Model):                         ### tabla con información i
     pen_secueusuario = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_nombreusuario = models.CharField(max_length=1000)
     pen_idcargue = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    pen_idsolpadre = models.DecimalField(db_column='pen_idSolPadre', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    pen_idsolpadre = models.DecimalField(db_column='pen_idSolPadre', max_digits=30, decimal_places=6)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_fchcargue = models.DateField()
-    ac_ortr_012 = models.DecimalField(db_column='AC_ORTR_012', max_digits=10, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    ac_ortr_012 = models.DecimalField(db_column='AC_ORTR_012', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     ac_diac_001 = models.DecimalField(db_column='AC_DIAC_001', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     ac_meac_002 = models.DecimalField(db_column='AC_MEAC_002', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     ac_anac_003 = models.CharField(max_length=1000,db_column='AC_ANAC_003', blank=True, null=True)  # Field name made lowercase.
@@ -2783,7 +2783,7 @@ class IfRepartoGralPte1(models.Model):
 #120
 class IfRepartoGralPte2(models.Model):
     pen_idsecue = models.AutoField(primary_key=True)
-    pen_nrofila = models.DecimalField(max_digits=6, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    pen_nrofila = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_idsolicitud = models.DecimalField(db_column='pen_IdSolicitud', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_pestana = models.CharField(max_length=1000)
     pen_idgrilla = models.DecimalField(db_column='pen_idGrilla', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
@@ -2792,15 +2792,15 @@ class IfRepartoGralPte2(models.Model):
     pen_idcargue = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_idsolpadre = models.DecimalField(db_column='pen_idSolPadre', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_fchcargue = models.DateField()
-    re_ortr_008 = models.DecimalField(db_column='RE_ORTR_008', max_digits=10, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_anas_097 = models.DecimalField(db_column='RE_ANAS_097', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_ortr_008 = models.DecimalField(db_column='RE_ORTR_008', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_anas_097 = models.DecimalField(db_column='RE_ANAS_097', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_coel_098 = models.CharField(max_length=1000,db_column='RE_COEL_098', blank=True, null=True)  # Field name made lowercase.
-    re_aunp_089 = models.DecimalField(db_column='RE_AUNP_089', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_deot_090 = models.DecimalField(db_column='RE_DEOT_090', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_aunp_089 = models.DecimalField(db_column='RE_AUNP_089', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_deot_090 = models.DecimalField(db_column='RE_DEOT_090', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_meot_091 = models.DecimalField(db_column='RE_MEOT_091', max_digits=20, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_aeot_092 = models.DecimalField(db_column='RE_AEOT_092', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_hoot_093 = models.DecimalField(db_column='RE_HOOT_093', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_miot_110 = models.DecimalField(db_column='RE_MIOT_110', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_aeot_092 = models.DecimalField(db_column='RE_AEOT_092', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_hoot_093 = models.DecimalField(db_column='RE_HOOT_093', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_miot_110 = models.DecimalField(db_column='RE_MIOT_110', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_dien_093 = models.CharField(max_length=1000,db_column='RE_DIEN_093', blank=True, null=True)  # Field name made lowercase.
     re_noel_094 = models.CharField(max_length=1000,db_column='RE_NOEL_094', blank=True, null=True)  # Field name made lowercase.
     re_obse_095 = models.CharField(max_length=1000,db_column='RE_OBSE_095', blank=True, null=True)  # Field name made lowercase.
@@ -2812,7 +2812,7 @@ class IfRepartoGralPte2(models.Model):
 #121
 class IfRepartoGralPte3(models.Model):
     pen_idsecue = models.AutoField(primary_key=True)
-    pen_nrofila = models.DecimalField(max_digits=6, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    pen_nrofila = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_idsolicitud = models.DecimalField(db_column='pen_IdSolicitud', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_pestana = models.CharField(max_length=1000)
     pen_idgrilla = models.DecimalField(db_column='pen_idGrilla', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
@@ -2821,14 +2821,14 @@ class IfRepartoGralPte3(models.Model):
     pen_idcargue = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_idsolpadre = models.DecimalField(db_column='pen_idSolPadre', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_fchcargue = models.DateField()
-    re_ortr_007 = models.DecimalField(db_column='RE_ORTR_007', max_digits=10, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_ortr_007 = models.DecimalField(db_column='RE_ORTR_007', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_coel_999 = models.CharField(max_length=1000,db_column='RE_COEL_999', blank=True, null=True)  # Field name made lowercase.
-    re_acte_102 = models.DecimalField(db_column='RE_ACTE_102', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_acte_102 = models.DecimalField(db_column='RE_ACTE_102', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_obde_103 = models.CharField(max_length=1000,db_column='RE_OBDE_103', blank=True, null=True)  # Field name made lowercase.
-    re_dira_096 = models.DecimalField(db_column='RE_DIRA_096', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_dira_096 = models.DecimalField(db_column='RE_DIRA_096', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_mera_097 = models.DecimalField(db_column='RE_MERA_097', max_digits=20, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_anra_098 = models.DecimalField(db_column='RE_ANRA_098', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_sere_099 = models.DecimalField(db_column='RE_SERE_099', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_anra_098 = models.DecimalField(db_column='RE_ANRA_098', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_sere_099 = models.DecimalField(db_column='RE_SERE_099', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_dien_100 = models.CharField(max_length=1000,db_column='RE_DIEN_100', blank=True, null=True)  # Field name made lowercase.
     re_nomb_101 = models.CharField(max_length=1000,db_column='RE_NOMB_101', blank=True, null=True)  # Field name made lowercase.
 
@@ -2839,7 +2839,7 @@ class IfRepartoGralPte3(models.Model):
 #122
 class IfRepartoGralPte4(models.Model):
     pen_idsecue = models.AutoField(primary_key=True)
-    pen_nrofila = models.DecimalField(max_digits=6, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    pen_nrofila = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_idsolicitud = models.DecimalField(db_column='pen_IdSolicitud', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_pestana = models.CharField(max_length=1000)
     pen_idgrilla = models.DecimalField(db_column='pen_idGrilla', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
@@ -2848,12 +2848,12 @@ class IfRepartoGralPte4(models.Model):
     pen_idcargue = models.DecimalField(max_digits=12, decimal_places=5)  # max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_idsolpadre = models.DecimalField(db_column='pen_idSolPadre', max_digits=12, decimal_places=5)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     pen_fchcargue = models.DateField()
-    re_otnu_111 = models.DecimalField(db_column='RE_OTNU_111', max_digits=10, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_core_112 = models.DecimalField(db_column='RE_CORE_112', max_digits=10, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_naas_102 = models.DecimalField(db_column='RE_NAAS_102', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_dira_103 = models.DecimalField(db_column='RE_DIRA_103', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_otnu_111 = models.DecimalField(db_column='RE_OTNU_111', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_core_112 = models.DecimalField(db_column='RE_CORE_112', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_naas_102 = models.DecimalField(db_column='RE_NAAS_102', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_dira_103 = models.DecimalField(db_column='RE_DIRA_103', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_mera_104 = models.DecimalField(db_column='RE_MERA_104', max_digits=20, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
-    re_anra_105 = models.DecimalField(db_column='RE_ANRA_105', max_digits=5, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
+    re_anra_105 = models.DecimalField(db_column='RE_ANRA_105', max_digits=12, decimal_places=5, blank=True, null=True)  # Field name made lowercase. max_digits and decimal_places have been guessed, as this database handles decimal fields as float
     re_dias_107 = models.CharField(max_length=1000,db_column='RE_DIAS_107', blank=True, null=True)  # Field name made lowercase.
     re_nore_108 = models.CharField(max_length=1000,db_column='RE_NORE_108', blank=True, null=True)  # Field name made lowercase.
     re_obre_109 = models.CharField(max_length=1000,db_column='RE_OBRE_109', blank=True, null=True)  # Field name made lowercase.
@@ -3538,7 +3538,7 @@ class ModVersion(models.Model):
 
 #155
 class Pbcatcol(models.Model):
-    pbc_tnam = models.CharField(max_length=1000,)
+    pbc_tnam = models.CharField(max_length=1000, primary_key=True)
     pbc_tid = models.IntegerField(blank=True, null=True)
     pbc_ownr = models.CharField(max_length=1000,)
     pbc_cnam = models.CharField(max_length=1000,)
@@ -3570,7 +3570,7 @@ class Pbcatedt(models.Model):
     pbe_edit = models.CharField(max_length=1000,blank=True, null=True)
     pbe_type = models.SmallIntegerField(blank=True, null=True)
     pbe_cntr = models.IntegerField(blank=True, null=True)
-    pbe_seqn = models.SmallIntegerField()
+    pbe_seqn = models.SmallIntegerField(primary_key=True)
     pbe_flag = models.IntegerField(blank=True, null=True)
     pbe_work = models.CharField(max_length=1000,blank=True, null=True)
 
@@ -3625,7 +3625,7 @@ class Pbcattbl(models.Model):
 
 #159
 class Pbcatvld(models.Model):
-    pbv_name = models.CharField(max_length=1000,unique=True)
+    pbv_name = models.CharField(max_length=1000,unique=True, primary_key=True)
     pbv_vald = models.CharField(max_length=1000,blank=True, null=True)
     pbv_type = models.SmallIntegerField(blank=True, null=True)
     pbv_cntr = models.IntegerField(blank=True, null=True)

@@ -8,7 +8,7 @@ class AReevalPermiso(viewsets.ModelViewSet):
     queryset = AReeval.objects.all()
     serializer_class = apiAReeval
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['cc']
+    filterset_fields = ['cc','ot']
     http_method_names = ['get']
 
 #12    
@@ -16,7 +16,7 @@ class AccUsuUsuarioPermiso(viewsets.ModelViewSet):
     queryset = AccUsuUsuario.objects.all()
     serializer_class = apiAccUsuUsuario
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['usu_cod','acc_usu_mail']
+    filterset_fields = ['usu_cod','acc_usu_secue']
     http_method_names = ['get']
 
 #14
@@ -70,16 +70,18 @@ class CerEvaEvaluadoPermiso(viewsets.ModelViewSet):
     
 #31
 class CerSeg2ComitePermiso(viewsets.ModelViewSet):
-    queryset = CerSeg2Comite.objects.all()[:500]
+    queryset = CerSeg2Comite.objects.all()
     serializer_class = apiCerSeg2Comite
     filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['cer_seg_secue']
     http_method_names = ['get']
     
 #32
 class CerSegComitePermiso(viewsets.ModelViewSet):
-    queryset = CerSegComite.objects.all()[:500]
+    queryset = CerSegComite.objects.all()
     serializer_class = apiCerSegComite
     filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['pen_idsolpadreot']
     http_method_names = ['get']
     
 #40
@@ -105,8 +107,9 @@ class CufSolSolicitudPermiso(viewsets.ModelViewSet):
 
 #74
 class IfActaPermiso(viewsets.ModelViewSet):
-    queryset = IfActa.objects.all()[:500]
+    queryset = IfActa.objects.all()
     serializer_class = apiIfActa
+    filterset_fields = ['pen_idsolpadre']
     filter_backends = [DjangoFilterBackend]
     http_method_names = ['get']
     
@@ -212,9 +215,9 @@ class IfEntrevistaPermiso(viewsets.ModelViewSet):
     
 #100
 class IfEntrevista2Permiso(viewsets.ModelViewSet):
-    queryset = IfEntrevista2.objects.all()
+    queryset = IfEntrevista2.objects.all()[:100]
     serializer_class = apiIfEntrevista2
-    filterset_fields = ['pen_idsolicitud']
+    # filterset_fields = ['pen_idsolicitud']
     filter_backends = [DjangoFilterBackend]
     http_method_names = ['get']
     
@@ -226,8 +229,23 @@ class IfGvpPermiso(viewsets.ModelViewSet):
     http_method_names = ['get']
     
 class IfRepartoGralPte1Permiso(viewsets.ModelViewSet):
-    queryset = IfRepartoGralPte1.objects.all()
+    queryset = IfRepartoGralPte1.objects.all()[:500]
     serializer_class = apiIfRepartoGralPte1
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['re_ortr_009']
+    # filterset_fields = ['re_ortr_009']
+    http_method_names = ['get']
+    
+    
+class IfRepartoGralPte2Permiso(viewsets.ModelViewSet):
+    queryset = CufSolSolicitud.objects.all()[:100]
+    serializer_class = apiIfRepartoGralPte2
+    filter_backends = [DjangoFilterBackend]
+    # filterset_fields = ['re_ortr_008','pen_idsecue']
+    http_method_names = ['get']
+
+class repartoPermiso(viewsets.ModelViewSet):
+    queryset = IfRepartoGralPte1.objects.all()#order_by('-pen_idsecue')[:50][::-1]
+    serializer_class = repartoPermiso
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['re_ortr_009','re_niev_016']
     http_method_names = ['get']
