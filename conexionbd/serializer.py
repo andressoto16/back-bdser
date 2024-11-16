@@ -259,13 +259,14 @@ class repartoPermiso(serializers.ModelSerializer):
         return fecha_completa
     
     def get_poblacion(self, obj):
-        return 'Pendiente'
+        poblacion = CufDranDetrangos.objects.filter(cuf_dran_valor = obj.re_grpo_022).last()
+        return  poblacion.cuf_dran_nombre if poblacion else None
 
     def get_subpoblacion(self, obj):
         return 'Pendiente'
         
     def get_tipoEstudio(self, obj):
-        return 'Pendiente'
+        return  obj.re_teri_074 if obj else None
         
     def get_departamento(self, obj):
         return departamento(obj.re_deso_004) if obj and obj.re_deso_004 is not None else 'Departamento no encontrado'
