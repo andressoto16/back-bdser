@@ -1,6 +1,6 @@
 from conexionbd.models import *
 from rest_framework import serializers
-from conexionbd.views import poblacionser, departamento, municipio
+from conexionbd.views import departamento, municipio, poblacionser, subpoblacion, tipoEstudio
 
 
 #1
@@ -259,14 +259,13 @@ class repartoPermiso(serializers.ModelSerializer):
         return fecha_completa
     
     def get_poblacion(self, obj):
-        poblacion = CufDranDetrangos.objects.filter(cuf_dran_valor = obj.re_grpo_022).last()
-        return  poblacion.cuf_dran_nombre if poblacion else None
-
+        return poblacionser(obj.re_grpo_022) if obj and obj.re_grpo_022 is not None else 'Población no encontrado'
+        
     def get_subpoblacion(self, obj):
-        return 'Pendiente'
+        return subpoblacion(obj.re_categoria) if obj and obj.re_categoria is not None else 'Subpoblación no encontrado'
         
     def get_tipoEstudio(self, obj):
-        return  obj.re_teri_074 if obj else None
+        return tipoEstudio(obj.re_teri_074) if obj and obj.re_teri_074 is not None else 'Tipo de estudio no asignado'
         
     def get_departamento(self, obj):
         return departamento(obj.re_deso_004) if obj and obj.re_deso_004 is not None else 'Departamento no encontrado'
